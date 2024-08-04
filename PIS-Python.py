@@ -26,7 +26,7 @@ categories_config_path = 'config/categories.cfg'
 categories_names = {}
 wav_output_path = f"{getenv('APPDATA')}\\TD2-AN.wav"
 gong_sound_path = None
-current_version = '2.4'
+current_version = '2.5'
 user = 'bravuralion'
 repo = 'TD2-Driver-PIS-SYSTEM'
 api_url = f"https://api.github.com/repos/{user}/{repo}/releases/latest"
@@ -42,8 +42,8 @@ global train_number_textbox, stations_listbox, language_combobox
 CLIENT_ID = ''
 api_key = ''
 blacklist_url = ""
-"""
 
+"""
 keys = {}
 with open('keys.txt', 'r') as file:
     for line in file:
@@ -616,8 +616,8 @@ def generate_button_click(station_dropdown, train_dropdown, track_dropdown, cate
             departure_timestamp = stop_details['departureTimestamp']
             arrival_timestamp = stop_details['arrivalTimestamp']
 
-            departure_time = datetime.datetime(1970, 1, 1) + datetime.timedelta(seconds=departure_timestamp / 1000)
-            arrival_time = datetime.datetime(1970, 1, 1) + datetime.timedelta(seconds=arrival_timestamp / 1000)
+            departure_time = datetime.datetime(1970, 1, 1) + datetime.timedelta(seconds=departure_timestamp / 1000) + datetime.timedelta(hours=2)
+            arrival_time = datetime.datetime(1970, 1, 1) + datetime.timedelta(seconds=arrival_timestamp / 1000) + datetime.timedelta(hours=2)
 
             delay_minutes = stop_details['departureDelay']
             selected_language = language_combobox.get() 
